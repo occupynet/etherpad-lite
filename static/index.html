@@ -6,64 +6,67 @@
         <style> 
             *{ margin:0;padding:0; }
             body {
-              background: rgba(0,0,0,.05);
               color: #333;
               font: 14px helvetica,sans-serif;
-              background: #ccc;
-              background: -webkit-radial-gradient(circle,#aaa,#eee 60%) center fixed;
-              background: -moz-radial-gradient(circle,#aaa,#eee 60%) center fixed;
-              background: -ms-radial-gradient(circle,#aaa,#eee 60%) center fixed;
-              background: -o-radial-gradient(circle,#aaa,#eee 60%) center fixed;
               overflow-x: hidden;
-              border-top: 8px solid rgba(51,51,51,.8);
             }
             #container {
-              text-shadow: 0 1px 1px #fff;
-              border-top: 1px solid #999;
-              margin-top: 160px;
-              text-align: center;
               padding: 15px;
-              background: #eee;
-              background: -webkit-linear-gradient(#fff,#ccc);
-              background: -moz-linear-gradient(#fff,#ccc);
-              background: -ms-linear-gradient(#fff,#ccc);
-              background: -o-linear-gradient(#fff,#ccc);
-              opacity: .9;
-              box-shadow: 0px 1px 8px rgba(0,0,0,0.3);
             }
+						#info {
+							background:#FFF0B7;
+							border:1px solid #FC0;
+							margin-left:320px;
+							padding:5px 15px;
+							max-width:600px;
+							-moz-border-radius:10px;
+							-webkit-border-radius:10px;
+							-o-border-radius:10px;
+							border-radius:10px;
+						}
+						#info p { margin:0.5em 0 1em 0.5em; }
+						#newPad {
+							float:left;
+							width:305px;
+						}
             #button {
-              margin: 0 auto;
               border-radius: 3px;
               text-align: center;
-              font: 36px verdana,arial,sans-serif;
-              color: white;
-              text-shadow: 0 -1px 0 rgba(0,0,0,.8);
+              font: 32px verdana,arial,sans-serif;
+              color: black;
               height: 70px;
               line-height: 70px;
               width: 300px;
-              background: #555;
-              background: -webkit-linear-gradient(#5F5F5F,#565656 50%,#4C4C4C 51%,#373737);
-              background: -moz-linear-gradient(#5F5F5F,#565656 50%,#4C4C4C 51%,#373737);
-              background: -ms-linear-gradient(#5F5F5F,#565656 50%,#4C4C4C 51%,#373737);
-              background: -o-linear-gradient(#5F5F5F,#565656 50%,#4C4C4C 51%,#373737);
-              box-shadow: inset 0 1px 3px rgba(0,0,0,0.9);
+							background: #ffcc00; /* Old browsers */
+							background: -moz-linear-gradient(top,  #ffcc00 0%, #ffd83d 50%, #efbb00 51%, #d8ad00 100%); /* FF3.6+ */
+							background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffcc00), color-stop(50%,#ffd83d), color-stop(51%,#efbb00), color-stop(100%,#d8ad00)); /* Chrome,Safari4+ */
+							background: -webkit-linear-gradient(top,  #ffcc00 0%,#ffd83d 50%,#efbb00 51%,#d8ad00 100%); /* Chrome10+,Safari5.1+ */
+							background: -o-linear-gradient(top,  #ffcc00 0%,#ffd83d 50%,#efbb00 51%,#d8ad00 100%); /* Opera 11.10+ */
+							background: -ms-linear-gradient(top,  #ffcc00 0%,#ffd83d 50%,#efbb00 51%,#d8ad00 100%); /* IE10+ */
+							background: linear-gradient(top,  #ffcc00 0%,#ffd83d 50%,#efbb00 51%,#d8ad00 100%); /* W3C */
+							filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffcc00', endColorstr='#d8ad00',GradientType=0 ); /* IE6-9 */
+
+              box-shadow: inset 0 1px 3px rgba(0,0,0,0.9)
             }
             #button:hover {
               cursor: pointer;
-              background: #666;
-              background: -webkit-linear-gradient(#707070,#666666 50%,#5B5B5B 51%,#474747);
-              background: -moz-linear-gradient(#707070,#666666 50%,#5B5B5B 51%,#474747);
-              background: -ms-linear-gradient(#707070,#666666 50%,#5B5B5B 51%,#474747);
-              background: -o-linear-gradient(#707070,#666666 50%,#5B5B5B 51%,#474747);
+              background: #d0a600; /* Old browsers */
+							background: -moz-linear-gradient(top,  #d0a600 0%, #ffcc01 50%, #c29800 51%, #ae8b00 100%); /* FF3.6+ */
+							background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#d0a600), color-stop(50%,#ffcc01), color-stop(51%,#c29800), color-stop(100%,#ae8b00)); /* Chrome,Safari4+ */
+							background: -webkit-linear-gradient(top,  #d0a600 0%,#ffcc01 50%,#c29800 51%,#ae8b00 100%); /* Chrome10+,Safari5.1+ */
+							background: -o-linear-gradient(top,  #d0a600 0%,#ffcc01 50%,#c29800 51%,#ae8b00 100%); /* Opera 11.10+ */
+							background: -ms-linear-gradient(top,  #d0a600 0%,#ffcc01 50%,#c29800 51%,#ae8b00 100%); /* IE10+ */
+							background: linear-gradient(top,  #d0a600 0%,#ffcc01 50%,#c29800 51%,#ae8b00 100%); /* W3C */
+							filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d0a600', endColorstr='#ae8b00',GradientType=0 ); /* IE6-9 */
             }
             #button:active {
               box-shadow: inset 0 1px 12px rgba(0,0,0,0.9);
-              background: #444;
+							color:#FC0;
+              background: #444
             }
             #label {
               text-align: left;
-              margin: 0 auto;
-              width: 300px;
+              width: 300px
             }
             input {
               vertical-align: middle;
@@ -110,12 +113,25 @@
         </style> 
         <link href="static/custom/index.css" rel="stylesheet"> 
         <script src="static/custom/index.js"></script>
+				<iframe src="http://www.Occupy.net/nav/occupynet.html#notes" frameborder="0" style="width:100%;height:36px;"></iframe>
         <div id="container"> 
-            <div id="button" onclick="go2Random()" class="translate">New Pad</div><br><div id="label" class="translate">or create/open a Pad with the name</div> 
-            <form action="#" onsubmit="go2Name();return false;"> 
-                    <input type="text" id="padname" autofocus> 
+					<div id="newPad">
+            <div id="button" onclick="go2Random()">Create New Pad</div><br><div id="label">or create/open a Pad with the name</div> 
+            <form action="#" name="mainform" onsubmit="go2Name();return false;"> 
+                    <input type="text" name="padname" id="padname" autofocus> 
                     <input type="submit" value="OK"> 
-            </form> 
+            </form>
+					</div>
+					<div id="info">
+						<h1>Welcome to Notes.occupy.net</h1>
+						<p>Use this tool to create and collaborate on documents <strong>in real time</strong>! <a href="http://notes.occupy.net/p/test" target="_blank">Try it out!</a></p>
+						<h3>Start a new pad.</h3>
+						<p>You can create a new pad by clicking <a onclick="go2Random()" href="#">Create New Pad</a>. This will produce a note pad with a random URL (example: notes.occupy.net/p/<strong>6ea3GZHk8F</strong>)</p>
+						<h3>Start a new named pad.</h3>
+						<p>You can create a pad with a specific name by filling out the form and pressing enter. We suggest you use dashes instead-of-spaces for a cleaner URL.</p>
+						<h3>Join an existing pad.</h3>
+						<p>If you know the name of the document you would like to edit you can enter it's name in the form. <strong>Be mindful of spaces and capitals, the name must match exactly.</strong> You can find the name of an existing pad after 'p/' in the URL: notes.occupy.net/p/<strong>test</strong></p>
+					</div>
         </div> 
         <script> 
             function go2Name() 
