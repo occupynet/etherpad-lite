@@ -21,60 +21,44 @@
  */
 
 var padutils = require('/pad_utils').padutils;
+var padcookie = require('/pad_cookie').padcookie;
 
 var chat = (function()
 {
-  var bottomMargin = "0px";
-  var sDuration = 500;
-  var hDuration = 750;
+  var isStuck = false;
   var chatMentions = 0;
   var title = document.title;
-  if ($.browser.mobile){
-   sDuration = 0;
-   hDuration = 0;
-  }
   var self = {
     show: function () 
     {      
-      $("#chaticon").hide("slide", {
-        direction: "down"
-      }, hDuration, function ()
-      {
-        $("#chatbox").show("slide", {
-          direction: "down"
-        }, sDuration, self.scrollDown);
-        $("#chatbox").resizable(
-        {
-          handles: 'nw',
-          minHeight: 40,
-          minWidth: 80,
-          start: function (event, ui)
-          {
-            $("#focusprotector").show();
-          },
-          stop: function (event, ui)
-          {
-            $("#focusprotector").hide();
-            
-            if($.browser.mobile)
-              bottommargin = "32px";
-            
-            $("#chatbox").css({right: "20px", bottom: bottomMargin, left: "", top: ""});
-            
-            self.scrollDown();
-          }
-        });
-      });
+      $("#chaticon").hide();
+      $("#chatbox").show();
+      self.scrollDown();
       chatMentions = 0;
       document.title = title;
+    },
+    stickToScreen: function(fromInitialCall) // Make chat stick to right hand side of screen
+    {
+      chat.show();
+      if(!isStuck || fromInitialCall) { // Stick it to
+        padcookie.setPref("chatAlwaysVisible", true);
+        $('#chatbox').addClass("stickyChat");
+        $('#chattext').css({"top":"0px"});
+        $('#editorcontainer').css({"right":"192px", "width":"auto"});
+        isStuck = true;
+      } else { // Unstick it
+        padcookie.setPref("chatAlwaysVisible", false);
+        $('#chatbox').removeClass("stickyChat");
+        $('#chattext').css({"top":"25px"});
+        $('#editorcontainer').css({"right":"0px", "width":"100%"});
+        isStuck = false;
+      }
     },
     hide: function () 
     {
       $("#chatcounter").text("0");
-      $("#chatbox").hide("slide", { direction: "down" }, sDuration, function()
-      {
-        $("#chaticon").show("slide", { direction: "down" }, hDuration);
-      });
+      $("#chaticon").show();
+      $("#chatbox").hide();
     },
     scrollDown: function()
     {
@@ -108,7 +92,7 @@ var chat = (function()
         return 'z' + c.charCodeAt(0) + 'z';
       });
 
-      var text = padutils.escapeHtmlWithClickableLinks(padutils.escapeHtml(msg.text), "_blank");
+      var text = padutils.escapeHtmlWithClickableLinks(msg.text, "_blank");
 
       /* Performs an action if your name is mentioned */
       var myName = $('#myusernameedit').val();
@@ -122,7 +106,7 @@ var chat = (function()
 
       var authorName = msg.userName == null ? "unnamed" : padutils.escapeHtml(msg.userName); 
       
-      var html = "<p class='" + authorClass + "'><b>" + authorName + ":</b><span class='time'>" + timeStr + "</span> " + text + "</p>";
+      var html = "<p class='" + authorClass + "'><b>" + authorName + ":</b><span class='time " + authorClass + "'>" + timeStr + "</span> " + text + "</p>";
       $("#chattext").append(html);
       
       //should we increment the counter??
@@ -137,15 +121,13 @@ var chat = (function()
           if (chatMentions == 0){
             title = document.title;
           }
-          $('#chatthrob').html("<b>"+authorName+"</b>" + ": " + text);
-          $('#chatthrob').effect("pulsate", {times:1,mode:"hide"},4000);
+          $('#chatthrob').html("<b>"+authorName+"</b>" + ": " + text).show().delay(4000).hide(400);
           chatMentions++;
           document.title = "("+chatMentions+") " + title;
         }
         else
         {
-          $('#chatthrob').html("<b>"+authorName+"</b>" + ": " + text);
-          $('#chatthrob').effect("pulsate", {times:1,mode:"hide"},2000);
+          $('#chatthrob').html("<b>"+authorName+"</b>" + ": " + text).show().delay(2000).hide(400);
         }
       }
       
@@ -177,3 +159,4 @@ var chat = (function()
 }());
 
 exports.chat = chat;
+

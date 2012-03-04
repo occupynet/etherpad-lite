@@ -1,17 +1,38 @@
 <!doctype html>
-<html>   
-        <title>Etherpad Lite</title> 
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-        <style> 
-            *{ margin:0;padding:0; }
+<html>
+
+        <title>Etherpad Lite</title>
+
+        <meta charset="utf-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+
+        <style>
             body {
+<<<<<<< HEAD
               color: #333;
               font: 14px helvetica,sans-serif;
               overflow-x: hidden;
             }
             #container {
+=======
+              margin: 0;
+              height: 100%;
+              color: #333;
+              font: 14px helvetica, sans-serif;
+              background: #ddd;
+              background: -webkit-radial-gradient(circle,#aaa,#eee 60%) center fixed;
+              background: -moz-radial-gradient(circle,#aaa,#eee 60%) center fixed;
+              background: -ms-radial-gradient(circle,#aaa,#eee 60%) center fixed;
+              background: -o-radial-gradient(circle,#aaa,#eee 60%) center fixed;
+              border-top: 8px solid rgba(51,51,51,.8);
+            }
+            #wrapper {
+              border-top: 1px solid #999;
+              margin-top: 160px;
+>>>>>>> 6fd73ecfda27fd6639c30a4c05c6149d66f669ee
               padding: 15px;
             }
+<<<<<<< HEAD
 						#info {
 							background:#FFF0B7;
 							border:1px solid #FC0;
@@ -28,6 +49,12 @@
 							float:left;
 							width:310px;
 						}
+=======
+            #inner {
+              width: 300px;
+              margin: 0 auto;
+            }
+>>>>>>> 6fd73ecfda27fd6639c30a4c05c6149d66f669ee
             #button {
               border-radius: 3px;
               text-align: center;
@@ -35,6 +62,7 @@
               color: black;
               height: 70px;
               line-height: 70px;
+<<<<<<< HEAD
               width: 300px;
 							background: #ffcc00; /* Old browsers */
 							background: -moz-linear-gradient(top,  #ffcc00 0%, #ffd83d 50%, #efbb00 51%, #d8ad00 100%); /* FF3.6+ */
@@ -46,6 +74,14 @@
 							filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffcc00', endColorstr='#d8ad00',GradientType=0 ); /* IE6-9 */
 
               box-shadow: inset 0 1px 3px rgba(0,0,0,0.9)
+=======
+              background: #555;
+              background: -webkit-linear-gradient(#5F5F5F,#565656 50%,#4C4C4C 51%,#373737);
+              background: -moz-linear-gradient(#5F5F5F,#565656 50%,#4C4C4C 51%,#373737);
+              background: -ms-linear-gradient(#5F5F5F,#565656 50%,#4C4C4C 51%,#373737);
+              background: -o-linear-gradient(#5F5F5F,#565656 50%,#4C4C4C 51%,#373737);
+              box-shadow: inset 0 1px 3px rgba(0,0,0,0.9);
+>>>>>>> 6fd73ecfda27fd6639c30a4c05c6149d66f669ee
             }
             #button:hover {
               cursor: pointer;
@@ -65,53 +101,75 @@
             }
             #label {
               text-align: left;
+<<<<<<< HEAD
               width: 300px
+=======
+              text-shadow: 0 1px 1px #fff;
+              margin: 16px auto 0;
+>>>>>>> 6fd73ecfda27fd6639c30a4c05c6149d66f669ee
             }
-            input {
-              vertical-align: middle;
+            form {
+              height: 38px;
+              background: #fff;
+              border: 1px solid #bbb;
+              border-radius: 3px;
+              position: relative;
+            }
+            button, input {
               font-weight: bold;
               font-size: 15px;
             }
             input[type="text"] {
-              width: 243px;
-              padding: 10px 47px 10px 10px;
-              background: #fff;
-              border: 1px solid #bbb;
-              outline: none;
               border-radius: 3px;
-              text-shadow: 0 0 1px #fff;
+              box-sizing: border-box;
+              -moz-box-sizing: border-box;   
+              padding: 0 45px 0 10px;
+              *padding: 0; /* IE7 hack */
+              width: 100%;
+              height: 100%;
+              outline: none;
+              border: none;
+              position: absolute;
             }
-            input[type="submit"] {
+            button[type="submit"] {
+              position: absolute;
+              right: 0;
               width: 45px;
-              margin-left: -50px;
-              padding: 8px;
+              height: 38px;
             }
-            input[type="submit"]::-moz-focus-inner { border: 0 }
-            @-moz-document url-prefix() { input[type="submit"] { padding: 7px } }     
             @media only screen and (min-device-width: 320px) and (max-device-width: 720px) {
               body {
                 background: #bbb;
                 background: -webkit-linear-gradient(#aaa,#eee 60%) center fixed;
-                height: 100%;
+                background: -moz-linear-gradient(#aaa,#eee 60%) center fixed;
+                background: -ms-linear-gradient(#aaa,#eee 60%) center fixed;
               }
-              #container {
+              #wrapper {
                 margin-top: 0;
-                text-align: left;
               }
-              #button, #label {
-                text-align: center;
+              #inner {
                 width: 95%;        
               }
-              form {
-               text-align: center;
-              }
-              input[type=text] {
-                width: 75%;
+              #label {
+                text-align: center;
               }
             }
-        </style> 
+        </style>
         <link href="static/custom/index.css" rel="stylesheet"> 
+
+        <div id="wrapper">
+            <div id="inner">
+                <div id="button" onclick="go2Random()" class="translate">New Pad</div>
+                <div id="label" class="translate">or create/open a Pad with the name</div> 
+                <form action="#" onsubmit="go2Name();return false;"> 
+                    <input type="text" id="padname" autofocus x-webkit-speech> 
+                    <button type="submit">OK</button>
+                </form>
+            </div>
+        </div>
+
         <script src="static/custom/index.js"></script>
+<<<<<<< HEAD
 				<iframe src="http://www.Occupy.net/nav/occupynet.html#notes" frameborder="0" style="width:100%;height:36px;"></iframe>
         <div id="container"> 
 					<div id="newPad">
@@ -132,6 +190,8 @@
 						<p>If you know the name of the document you would like to edit you can enter it's name in the form. <strong>Be mindful of spaces and capitals, the name must match exactly.</strong> You can find the name of an existing pad after 'p/' in the URL: notes.occupy.net/p/<strong>test</strong></p>
 					</div>
         </div> 
+=======
+>>>>>>> 6fd73ecfda27fd6639c30a4c05c6149d66f669ee
         <script> 
             function go2Name() 
             {
@@ -157,7 +217,8 @@
                 return randomstring;
             }
             
-            //start the costum js
-            if(typeof costumStart == "function") costumStart();
-        </script> 
+            // start the custom js
+            if (typeof customStart == "function") customStart();
+        </script>
+
 </html>
