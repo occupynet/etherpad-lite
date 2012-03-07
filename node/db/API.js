@@ -350,6 +350,23 @@ exports.getReadOnlyID = function(padID, callback)
 }
 
 /**
+getFromReadOnlyId(padID) returns the editable link for a pad when given the readOnlyID
+
+Example returns:
+
+{code: 0, message:"ok", data: {padID:"some-pad-name"}}
+{code: 1, message:"readOnlyID does not exist", data: null}
+*/
+
+exports.getFromReadOnlyID = function(readOnlyID, callback){
+  readOnlyManager.getPadId(readOnlyID,function(err, padID)
+  {
+    if(ERR(err, callback)) return;
+    callback(null, {padID: padID});
+  });
+}
+
+/**
 setPublicStatus(padID, publicStatus) sets a boolean for the public status of a pad 
 
 Example returns:

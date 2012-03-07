@@ -157,6 +157,10 @@ exports.isValidPadId = function(padId)
   return /^(g.[a-zA-Z0-9]{16}\$)?[^$]{1,50}$/.test(padId);
 }
 
+exports.isValidReadOnlyId = function(readOnlyId) {
+  return true;
+}
+
 //removes a pad from the array
 exports.unloadPad = function(padId)
 {

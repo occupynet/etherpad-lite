@@ -59,6 +59,7 @@ var functions = {
   "getRevisionsCount"         : ["padID"], 
   "deletePad"                 : ["padID"], 
   "getReadOnlyID"             : ["padID"],
+  "getFromReadOnlyID"         : ["readOnlyID"],
   "setPublicStatus"           : ["padID", "publicStatus"], 
   "getPublicStatus"           : ["padID"], 
   "setPassword"               : ["padID", "password"], 
