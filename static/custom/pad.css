@@ -1,0 +1,41 @@
+#editbar ul #OccupyNet {
+    background-color: #000000;
+    border: 1px solid #666666;
+    color: #FFCC00;
+    line-height: 18px;
+    width: auto;
+    -webkit-box-shadow: 0 0 3px #999999 inset;
+    -moz-box-shadow: 0 0 3px #999999 inset;
+    box-shadow: 0 0 3px #999999 inset;
+    -webkit-transition: all .4s ease-in-out;
+    -moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -ms-transition: all .4s ease-in-out; 
+    transition: all .4s ease-in-out;
+}
+
+#editbar ul #OccupyNet:hover {
+    background-color: #FC0;
+    border: 1px solid #666666;
+    color: #000;
+    line-height: 18px;
+    width: auto;
+    -webkit-box-shadow: 0 0 3px #999999 inset;
+    -moz-box-shadow: 0 0 3px #999999 inset;
+    box-shadow: 0 0 3px #999999 inset;
+}
+
+#editbar ul #OccupyNet a {
+    color: inherit;
+    font-size: 14px;
+    font-weight: bold;
+    position: relative;
+}
+#editbar ul #OccupyNet:hover {
+}
+
+#editbar ul #OccupyNet a .white {
+    color: #FFF;
+    font-weight: bold;
+    position: relative;
+}
