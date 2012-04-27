@@ -19,10 +19,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-var global = this;
 
-function loadBroadcastSliderJS()
+ // These parameters were global, now they are injected. A reference to the
+ // Timeslider controller would probably be more appropriate.
+var forEach = require('./ace2_common').forEach;
+
+function loadBroadcastSliderJS(fireWhenAllScriptsAreLoaded)
 {
+  var BroadcastSlider;
 
   (function()
   { // wrap this code in its own namespace
@@ -171,7 +175,7 @@ function loadBroadcastSliderJS()
       $("#authorstable").empty();
       var numAnonymous = 0;
       var numNamed = 0;
-      authors.forEach(function(author)
+      forEach(authors, function(author)
       {
         if (author.name)
         {
@@ -203,7 +207,7 @@ function loadBroadcastSliderJS()
       }
     }
 
-    global.BroadcastSlider = {
+    BroadcastSlider = {
       onSlider: onSlider,
       getSliderPosition: getSliderPosition,
       setSliderPosition: setSliderPosition,
@@ -465,7 +469,7 @@ function loadBroadcastSliderJS()
             $("#timeslider").show();
             setSliderLength(clientVars.totalRevs);
             setSliderPosition(clientVars.revNum);
-            clientVars.savedRevisions.forEach(function(revision)
+            forEach(clientVars.savedRevisions, function(revision)
             {
               addSavedRevision(revision.revNum, revision);
             })
@@ -495,6 +499,8 @@ function loadBroadcastSliderJS()
   {
     $("#viewlatest").html(loc == BroadcastSlider.getSliderLength() ? "Viewing latest content" : "View latest content");
   })
+
+  return BroadcastSlider;
 }
 
 exports.loadBroadcastSliderJS = loadBroadcastSliderJS;

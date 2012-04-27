@@ -57,7 +57,7 @@ Here is the **[FAQ](https://github.com/Pita/etherpad-lite/wiki/FAQ)**
 **As root:**
 
 <ol>
-  <li>Install the dependencies. We need gzip, git, curl, libssl develop libraries, python and gcc. <br><i>For Debian/Ubuntu</i> <code>apt-get install gzip git-core curl python libssl-dev build-essential</code><br>
+  <li>Install the dependencies. We need gzip, git, curl, libssl develop libraries, python and gcc. <br><i>For Debian/Ubuntu</i> <code>apt-get install gzip git-core curl python libssl-dev pkg-config build-essential</code><br>
   <i>For Fedora/CentOS</i> <code>yum install gzip git-core curl python openssl-devel && yum groupinstall "Development Tools"</code>
   </li><br>
   <li>Install node.js 
@@ -73,6 +73,7 @@ Here is the **[FAQ](https://github.com/Pita/etherpad-lite/wiki/FAQ)**
 
 <ol start="3">
   <li>Move to a folder where you want to install Etherpad Lite. Clone the git repository <code>git clone 'git://github.com/Pita/etherpad-lite.git'</code><br>&nbsp;</li>
+  <li>Change into the directory containing the Etherpad Lite source code clone with <code>cd etherpad-lite</code><br> </li>
   <li>Install the dependencies with <code>bin/installDeps.sh</code><br>&nbsp;</li>
   <li>Start it with <code>bin/run.sh</code><br>&nbsp;</li>
   <li>Open your web browser and visit <a href="http://localhost:9001">http://localhost:9001</a>. You like it? Look at the 'Next Steps' section below</li>
@@ -80,6 +81,8 @@ Here is the **[FAQ](https://github.com/Pita/etherpad-lite/wiki/FAQ)**
 
 ## Next Steps
 You can modify the settings in the file `settings.json`
+
+If you have multiple settings files, you may pass one to `bin/run.sh` using the `-s|--settings` option. This allows you to run multiple Etherpad Lite instances from the same installation.
 
 You should use a dedicated database such as "mysql" if you are planning on using etherpad-lite in a production environment, the "dirty" database driver is only for testing and/or development purposes.
 
@@ -119,6 +122,10 @@ contribute to Etherpad Lite.
 * [ueberDB](https://github.com/Pita/ueberDB) "transforms every database into a object key value store" - manages all database access
 * [channels](https://github.com/Pita/channels) "Event channels in node.js" - ensures that ueberDB operations are atomic and in series for each key
 * [async-stacktrace](https://github.com/Pita/async-stacktrace) "Improves node.js stacktraces and makes it easier to handle errors"
+
+# Donations
+* [Etherpad Foundation Flattr] (http://flattr.com/thing/71378/Etherpad-Foundation)
+* [Paypal] (http://etherpad.org) <-- Click the donate button
 
 # License
 [Apache License v2](http://www.apache.org/licenses/LICENSE-2.0.html)
