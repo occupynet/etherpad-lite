@@ -2,130 +2,11 @@
 <html>   
         <title>Etherpad Lite</title> 
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-        <style> 
-            *{ margin:0;padding:0; }
-            body {
-              color: #333;
-              font: 14px helvetica,sans-serif;
-              overflow-x: hidden;
-            }
-            #container {
-              margin: 0;
-              height: 100%;
-              color: #333;
-              font: 14px helvetica, sans-serif;
-              background: #ddd;
-              background: -webkit-radial-gradient(circle,#aaa,#eee 60%) center fixed;
-              background: -moz-radial-gradient(circle,#aaa,#eee 60%) center fixed;
-              background: -ms-radial-gradient(circle,#aaa,#eee 60%) center fixed;
-              background: -o-radial-gradient(circle,#aaa,#eee 60%) center fixed;
-              border-top: 8px solid rgba(51,51,51,.8);
-            }
-            #wrapper {
-              border-top: 1px solid #999;
-              margin-top: 160px;
-              padding: 15px;
-            }
-						#info {
-							background:#FFF0B7;
-							border:1px solid #FC0;
-							margin-left:320px;
-							padding:5px 15px;
-							max-width:600px;
-							-moz-border-radius:10px;
-							-webkit-border-radius:10px;
-							-o-border-radius:10px;
-							border-radius:10px;
-						}
-						#info p { margin:0.5em 0 1em 0.5em; }
-						#newPad {
-							float:left;
-							width:310px;
-						}
-            #button {
-              border-radius: 3px;
-              text-align: center;
-              font: 32px verdana,arial,sans-serif;
-              color: black;
-              height: 70px;
-              line-height: 70px;
-              width: 300px;
-							background: #ffcc00; /* Old browsers */
-							background: -moz-linear-gradient(top,  #ffcc00 0%, #ffd83d 50%, #efbb00 51%, #d8ad00 100%); /* FF3.6+ */
-							background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffcc00), color-stop(50%,#ffd83d), color-stop(51%,#efbb00), color-stop(100%,#d8ad00)); /* Chrome,Safari4+ */
-							background: -webkit-linear-gradient(top,  #ffcc00 0%,#ffd83d 50%,#efbb00 51%,#d8ad00 100%); /* Chrome10+,Safari5.1+ */
-							background: -o-linear-gradient(top,  #ffcc00 0%,#ffd83d 50%,#efbb00 51%,#d8ad00 100%); /* Opera 11.10+ */
-							background: -ms-linear-gradient(top,  #ffcc00 0%,#ffd83d 50%,#efbb00 51%,#d8ad00 100%); /* IE10+ */
-							background: linear-gradient(top,  #ffcc00 0%,#ffd83d 50%,#efbb00 51%,#d8ad00 100%); /* W3C */
-							filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffcc00', endColorstr='#d8ad00',GradientType=0 ); /* IE6-9 */
-
-              box-shadow: inset 0 1px 3px rgba(0,0,0,0.9)
-            }
-            #button:hover {
-              cursor: pointer;
-              background: #d0a600; /* Old browsers */
-							background: -moz-linear-gradient(top,  #d0a600 0%, #ffcc01 50%, #c29800 51%, #ae8b00 100%); /* FF3.6+ */
-							background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#d0a600), color-stop(50%,#ffcc01), color-stop(51%,#c29800), color-stop(100%,#ae8b00)); /* Chrome,Safari4+ */
-							background: -webkit-linear-gradient(top,  #d0a600 0%,#ffcc01 50%,#c29800 51%,#ae8b00 100%); /* Chrome10+,Safari5.1+ */
-							background: -o-linear-gradient(top,  #d0a600 0%,#ffcc01 50%,#c29800 51%,#ae8b00 100%); /* Opera 11.10+ */
-							background: -ms-linear-gradient(top,  #d0a600 0%,#ffcc01 50%,#c29800 51%,#ae8b00 100%); /* IE10+ */
-							background: linear-gradient(top,  #d0a600 0%,#ffcc01 50%,#c29800 51%,#ae8b00 100%); /* W3C */
-							filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d0a600', endColorstr='#ae8b00',GradientType=0 ); /* IE6-9 */
-            }
-            #button:active {
-              box-shadow: inset 0 1px 12px rgba(0,0,0,0.9);
-							color:#FC0;
-              background: #444
-            }
-            #label {
-              text-align: left;
-              width: 300px
-            }
-            input {
-              vertical-align: middle;
-              font-weight: bold;
-              font-size: 15px;
-            }
-            input[type="text"] {
-              width: 243px;
-              padding: 10px 47px 10px 10px;
-              background: #fff;
-              border: 1px solid #bbb;
-              outline: none;
-              border-radius: 3px;
-              text-shadow: 0 0 1px #fff;
-            }
-            input[type="submit"] {
-              width: 45px;
-              margin-left: -50px;
-              padding: 8px;
-            }
-            input[type="submit"]::-moz-focus-inner { border: 0 }
-            @-moz-document url-prefix() { input[type="submit"] { padding: 7px } }     
-            @media only screen and (min-device-width: 320px) and (max-device-width: 720px) {
-              body {
-                background: #bbb;
-                background: -webkit-linear-gradient(#aaa,#eee 60%) center fixed;
-                height: 100%;
-              }
-              #container {
-                margin-top: 0;
-                text-align: left;
-              }
-              #button, #label {
-                text-align: center;
-                width: 95%;        
-              }
-              form {
-               text-align: center;
-              }
-              input[type=text] {
-                width: 75%;
-              }
-            }
-        </style> 
+        
         <link href="static/custom/index.css" rel="stylesheet"> 
         <script src="static/custom/index.js"></script>
+  </head>
+  <body>
 				<script type="text/javascript" src="https://nav.occupy.net/occupynet_nav.js"></script>
         <div id="container"> 
 					<div id="newPad">
@@ -137,12 +18,6 @@
 					</div>
 					<div id="info">
 						<h1>Welcome to Notes.occupy.net</h1>
-
-<!-- eknutson - 20120326 - added temporary notice -->
-<div style="padding:10px; border: 1px #333333 dashed; background-color:#ff3333">
-<h2>Important Notice</h2>
-<p>On March 24th, 2012 we experienced a server outage. We are working to recover the data and hope to have everything completely restored soon. In the mean time, you may use this site. Everything created or edited from this point forward will be safe.</p>
-</div>
 
 						<p>Use this tool to create and collaborate on documents <strong>in real time</strong>! <a href="http://notes.occupy.net/p/test" target="_blank">Try it out!</a></p>
 						<h3>Start a new pad.</h3>
@@ -183,4 +58,5 @@
             //start the costum js
             if(typeof costumStart == "function") costumStart();
         </script> 
+  </body>
 </html>
